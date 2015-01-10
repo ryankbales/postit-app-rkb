@@ -1,0 +1,8 @@
+<% if @post.categories %>
+  <p>
+    <%= render @post.categories %>
+  </p>
+<% end %>
+<%= render 'shared/content_title', title: @post.title %>
+
+<p><%= @post.description %></p>
