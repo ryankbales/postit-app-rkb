@@ -31,6 +31,6 @@
 
 13. Many to Many relationships can work in a couple different ways.  First, a join table with the id's of both entities that reference each other can be used.  An index in each table can be also added to each table and references it's corresponding record.
 
-14.  At the Model level, has_many :through or has_many_and_belongs_to_many can both be used.
+14.  At the Model level, has_many :through or has_many_and_belongs_to_many can both be used.  has_many_and_belongs_to_many doesn't allow us to add attributes to the table.
 
 15.  User has_many :user_groups and has_many :groups, through: :user_groups, Group has_many :user_groups and has_many :users, through: :user_groups

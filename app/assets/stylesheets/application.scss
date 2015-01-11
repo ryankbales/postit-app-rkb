@@ -14,10 +14,6 @@
 
  @import "bootstrap";
 
- .container {
-  margin-left: 135px
-}
-
 .navbar .nav > li > a.brand {
   padding-left: 0px;
 }
@@ -42,3 +38,6 @@ div.comment_votes {
   padding: 10px;
 }
 
+.alert-danger {
+  width:83%;
+}
