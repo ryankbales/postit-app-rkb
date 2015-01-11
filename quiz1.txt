@@ -1,0 +1,36 @@
+1.  A relational database is just that, full of relationships within a database's tables and attributes.  Each table is potentially related to 1 or more tables through use of join tables and primary/foreign keys.
+
+2.  Structured Query Lanquage is specific syntax used for managing data in a relational database.
+
+3.  Data and Schema views.  Data views are much like a spreadsheet with the data attributes across the header and each row specifying an instance within the table.  A schema view lists the data columns and the data type required.
+
+4.  Primary Key.
+
+5.  A foreign key is used as a reference to data rows in other tables always being on the "many" side of the relation.
+
+6.  ActiveRecord is a pattern used to accessing data in a database using Classes and objects within that class correspond to a row in a table.
+
+7.  Using "CrazyMonkey".tableize, it returns crazy_monkeys.
+
+8.  has_many :issues, foreign_key: :project_id, belongs_to :project, foreign_key: :project_id
+
+9.  a.  The other model would be Animal and the schema would belong_to :zoos
+    b.  Zoo would have methods like Zoo.animals.first or Zoo.animals.find_by :species
+    c.  Animal.create(name: "jumpster", zoo_id: id_of_san_diego_zoo)
+
+10. A mass assignment is creating an instance of in object like so:  Animal.create(species: "hipster", name: "Justin", age: 2 ).  Setting these using a non-mass assignment would look somthing like:
+
+    new_animal = Animal.new
+    new_animal.name = "Justin"
+    new_animal.species = "hipster"
+    new_animal.age = 12
+
+11. Animal.first queries the animals table for the first record.
+
+12. new_animal = Animal.create(name: "Joe")
+
+13. Many to Many relationships can work in a couple different ways.  First, a join table with the id's of both entities that reference each other can be used.  An index in each table can be also added to each table and references it's corresponding record.
+
+14.  At the Model level, has_many :through or has_many_and_belongs_to_many can both be used.
+
+15.  User has_many :user_groups and has_many :groups, through: :user_groups, Group has_many :user_groups and has_many :users, through: :user_groups

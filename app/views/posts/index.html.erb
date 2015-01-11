@@ -12,6 +12,8 @@
       <p>
         <span class='quiet'>posted by</span> <%= post.user.username if post.user %>
         <small>at <%= post.created_at %></small>
+        <br>
+        <span class='quiet'><%= link_to 'edit', edit_post_path(post) %></span>
       </p>
       <small>
         <span>
