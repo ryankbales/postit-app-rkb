@@ -6,6 +6,26 @@
     <li>
       <%= link_to 'New Post', new_post_path %>
     </li>
-</ul>
+    <li>
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+          Categories
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuDivider">
+          <li role="presentation">
+            <% Category.all.each do |category| %>
+              <%= link_to category.name, category_path(category) %>
+            <% end %>
+          </li>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation">
+            <button type="button" class="btn btn-success">
+              <%= link_to 'New Category', new_category_path, role: 'menuitem', tabindex: "-1" %>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
 </nav>
-

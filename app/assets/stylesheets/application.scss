@@ -27,7 +27,7 @@ div.nav_item {
   float: left;
 }
 
-.label  {
+.label, .badge  {
   a, a:hover, a:focus {
     color: #fff;
     text-decoration: none;
@@ -40,4 +40,14 @@ div.comment_votes {
 
 .alert-danger {
   width:83%;
+}
+
+.dropdown {
+  margin-top:7px;
+  .btn {
+    margin-left:13%;
+    a {
+      color:#ffffff;
+    }
+  }
 }
