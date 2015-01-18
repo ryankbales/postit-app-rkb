@@ -1,8 +1,15 @@
-<% if @post.categories %>
-  <p>
-    <%= render @post.categories %>
-  </p>
-<% end %>
+<p>
+  <%= render @post.categories if @post.categories %>
+</p>
 <%= render 'shared/content_title', title: @post.title %>
 
 <p><%= @post.description %></p>
+
+<%= link_to 'go back to all posts', posts_path, class: 'quiet' %>
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= render 'shared/errors', obj: @comment %>
+  <%= f.label :body, "Leave a comment:" %>
+  <%= f.text_area :body %>
+  <%= f.submit "Create Comment", class: 'btn btn-primary' %>
+<% end %>
