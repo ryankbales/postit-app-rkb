@@ -4,12 +4,22 @@
 <%= render 'shared/content_title', title: @post.title %>
 
 <p><%= @post.description %></p>
+<hr>
 
-<%= link_to 'go back to all posts', posts_path, class: 'quiet' %>
-
-<%= form_for [@post, @comment] do |f| %>
+<%= form_for [@post, @comment], html: {class: 'form-horizontal'} do |f| %>
   <%= render 'shared/errors', obj: @comment %>
   <%= f.label :body, "Leave a comment:" %>
-  <%= f.text_area :body %>
+  <%= f.text_area :body, rows: '4', class: 'span4 form-control' %>
   <%= f.submit "Create Comment", class: 'btn btn-primary' %>
+<% end %>
+
+<%= link_to '&laquo;go back to all posts'.html_safe, posts_path, class: 'quiet' %>
+
+<% @post.comments.each do |comment| %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <em>"<%= comment.body %>"</em>
+    </div>
+    <div class="panel-footer">by <%= link_to comment.user.username, '#' %> at <%= comment.created_at %></div>
+  </div>
 <% end %>
