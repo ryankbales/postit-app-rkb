@@ -1,0 +1,77 @@
+1.  If we were to look at the post resource routes, here are the 7 or 8 routes that you would use along with the 4 named routes we would use instead of harding in the url's.
+
+    get '/posts', to: posts#index                => posts_path
+    get '/posts/object', to: posts#show          => post_path(object)
+    get '/posts/object/edit', to: posts#edit     => edit_post_path(object)
+    get '/posts/new', to: posts#new              => new_post_path
+    post '/posts', to: posts#create 
+    patch '/posts/object', :to: posts#update
+    put '/posts/object', to: posts#update
+    delete '/posts/object', to: posts#destroy
+
+2.  REST is short for REpresentational State Transfer. It uses a stateless, client-server, cacheable communications protocol. 
+    RESTful apps use CRUD or, to create, retrieve, update, and delete data.
+
+    We can use the keyword 'resourse' to map these routes to the appropriate controller using HTTP verbs and paths.
+
+3.  Model backed forms use an object's getter and setter methods to create, retrieve, update and delete data where non-model back forms route directly to a specific action or url to process form data.
+
+4.  The form_for helper uses an object and it's model to build forms based on it's attributes.
+
+5.  Using Post as an example:
+
+    def create
+        @post = Post.new(params.require(:post).permit(:url, :title, :description))
+
+        if @post.save
+            flash[:notice] = "Your post was saved."
+            redirect_to posts_path
+        else
+            render :new
+        end
+    end
+
+    def update
+        @post = Post.find(params[:id])
+
+        if @post.update(params.require(:post).permit(:url, :title, :description))
+            flash[:notice] = "Your post was updated."
+            redirect_to post_path(@post)
+        else
+            render :edit
+        end
+    end
+
+6.  Rails validations are triggered when submissions from a form hit the database. The errors are saved on the model object such as @post.errors.
+
+7.  Rails helpers are predefined methods located in the application_helper.rb file to be shared throughout similar instances in the application itself.
+
+8.  Partials are basically a view of html coded that can be reused by rendering in the template that will be displayed.
+
+9.  Partials are used when similar presentations are required.  Helpers are used when similar logic can be used application wide.
+
+10.  Non-model backed forms are used when a form is on related to an object model.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
