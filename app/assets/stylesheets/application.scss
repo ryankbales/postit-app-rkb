@@ -14,10 +14,18 @@
 
  @import "bootstrap";
 
+body {
+  padding:2%;
+}
+
 .navbar .nav > li > a.brand {
   padding-left: 0px;
 }
 
+.row {
+  margin-left:0;
+  margin-right:0;
+}
 .quiet {
   color: #ababab;
 }
@@ -50,10 +58,45 @@ div.comment_votes {
       color:#ffffff;
     }
   }
+  .dropdown-menu {
+    .btn {
+      padding:0;
+      a {
+        display:block;
+        padding:6px 10px 6px 10px;
+      }
+      a:hover {
+        text-decoration:none;
+      }
+    }
+  }
+}
+
+.panel {
+  margin-top:20px;
 }
 
 #new_comment {
   .btn {
     margin-top: 12px;
   }
+}
+
+#new_post {
+  .checkbox-inline.adjustment {
+    margin-top:4px !important;
+  }
+  .checkbox-inline + .checkbox-inline {
+    margin-left:3%;
+  }
+  // .checkbox-inline:nth-of-type(1) {
+  //   margin-left:1%;
+  // }
+}
+.category-label {
+  display:block;
+}
+
+.checkbox .label-inline {
+  margin-top:4px !important;
 }

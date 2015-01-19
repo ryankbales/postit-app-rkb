@@ -4,6 +4,7 @@
 <%= render 'shared/content_title', title: @post.title %>
 
 <p><%= @post.description %></p>
+<p><%= normalize_external_link('More Info', @post.url) %></p>
 <hr>
 
 <%= form_for [@post, @comment], html: {class: 'form-horizontal'} do |f| %>
@@ -15,11 +16,13 @@
 
 <%= link_to '&laquo;go back to all posts'.html_safe, posts_path, class: 'quiet' %>
 
+<h4>Comments:</h4>
 <% @post.comments.each do |comment| %>
   <div class="panel panel-default">
     <div class="panel-body">
       <em>"<%= comment.body %>"</em>
     </div>
-    <div class="panel-footer">by <%= link_to comment.user.username, '#' %> at <%= comment.created_at %></div>
+    <% clean_time = date_time_sanitizer(comment.created_at) %>
+    <div class="panel-footer">by <%= link_to comment.user.username, '#' %> on <%= clean_time %></div>
   </div>
 <% end %>
