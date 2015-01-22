@@ -4,16 +4,19 @@
 <%= render 'shared/content_title', title: @post.title %>
 
 <p><%= @post.description %></p>
+<% if logged_in? %>
+  <%= link_to 'edit post', edit_post_path, class: 'quiet' %>
+<%  %>
 <p><%= normalize_external_link('More Info', @post.url) %></p>
 <hr>
-
-<%= form_for [@post, @comment], html: {class: 'form-horizontal'} do |f| %>
-  <%= render 'shared/errors', obj: @comment %>
-  <%= f.label :body, "Leave a comment:" %>
-  <%= f.text_area :body, rows: '4', class: 'span4 form-control' %>
-  <%= f.submit "Create Comment", class: 'btn btn-primary' %>
+<% if logged_in? %>
+  <%= form_for [@post, @comment], html: {class: 'form-horizontal'} do |f| %>
+    <%= render 'shared/errors', obj: @comment %>
+    <%= f.label :body, "Leave a comment:" %>
+    <%= f.text_area :body, rows: '4', class: 'span4 form-control' %>
+    <%= f.submit "Create Comment", class: 'btn btn-primary' %>
+  <% end %>
 <% end %>
-
 <%= link_to '&laquo;go back to all posts'.html_safe, posts_path, class: 'quiet' %>
 
 <h4>Comments:</h4>

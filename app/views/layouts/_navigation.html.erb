@@ -6,6 +6,21 @@
     <li>
       <%= link_to 'New Post', new_post_path %>
     </li>
+    <% if logged_in? %>
+      <li>
+        <%= current_user.username %>
+      </li>
+      <li>
+        <%= link_to 'Log Out', logout_path %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to 'Register', register_path %>
+      </li>
+      <li>
+        <%= link_to 'Log In', login_path %>
+      </li>
+    <% end %> 
     <li>
       <div class="dropdown">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
@@ -18,12 +33,14 @@
               <%= link_to category.name, category_path(category) %>
             <% end %>
           </li>
-          <li role="presentation" class="divider"></li>
-          <li role="presentation">
-            <button type="button" class="btn btn-success">
-              <%= link_to 'New Category', new_category_path, role: 'menuitem', tabindex: "-1" %>
-            </button>
-          </li>
+          <% if logged_in? %>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation">
+              <button type="button" class="btn btn-success">
+                <%= link_to 'New Category', new_category_path, role: 'menuitem', tabindex: "-1" %>
+              </button>
+            </li>
+          <% end %>
         </ul>
       </div>
     </li>

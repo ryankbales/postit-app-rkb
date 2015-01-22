@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def date_time_sanitizer(obj)
     if obj
       obj = obj.strftime("%A" + ", " "%b %d" + " at " "%l:%M%P %Y")
@@ -12,4 +13,6 @@ module ApplicationHelper
       link = link_to(label, "http://#{link}", target: 'blank')
     end
   end
+
+
 end
