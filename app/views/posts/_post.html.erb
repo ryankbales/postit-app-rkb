@@ -9,7 +9,9 @@
       <span class='quiet'>posted by</span> <%= post.user.username if post.user %>
       <small>on <%= date_time_sanitizer(post.created_at) %></small>
       <br>
-      <span class='quiet'><%= link_to 'edit', edit_post_path(post) %></span>
+      <% if logged_in? %>
+        <span class='quiet'><%= link_to 'edit', edit_post_path(post) %></span>
+      <% end %>
     </p>
     <small>
       <span>

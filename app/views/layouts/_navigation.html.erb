@@ -8,7 +8,7 @@
     </li>
     <% if logged_in? %>
       <li>
-        <%= current_user.username %>
+        <%= link_to current_user.username, "#" %>
       </li>
       <li>
         <%= link_to 'Log Out', logout_path %>

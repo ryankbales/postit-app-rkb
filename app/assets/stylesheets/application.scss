@@ -89,9 +89,6 @@ div.comment_votes {
   .checkbox-inline + .checkbox-inline {
     margin-left:3%;
   }
-  // .checkbox-inline:nth-of-type(1) {
-  //   margin-left:1%;
-  // }
 }
 .category-label {
   display:block;
@@ -99,4 +96,10 @@ div.comment_votes {
 
 .checkbox .label-inline {
   margin-top:4px !important;
+}
+
+#new_user {
+  input[type='text'], input[type='password'] {
+    width:70%;
+  }
 }

@@ -4,10 +4,10 @@
 <%= render 'shared/content_title', title: @post.title %>
 
 <p><%= @post.description %></p>
+<p><%= normalize_external_link('More Info >>', @post.url) %></p>
 <% if logged_in? %>
   <%= link_to 'edit post', edit_post_path, class: 'quiet' %>
-<%  %>
-<p><%= normalize_external_link('More Info', @post.url) %></p>
+<% end %>
 <hr>
 <% if logged_in? %>
   <%= form_for [@post, @comment], html: {class: 'form-horizontal'} do |f| %>
