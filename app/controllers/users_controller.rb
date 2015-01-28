@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:notice] = "Your Was Updated"
+      flash[:notice] = "Your Profile Was Updated"
       redirect_to user_path
     else
       render :new
