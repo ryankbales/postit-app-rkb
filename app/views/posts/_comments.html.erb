@@ -1,10 +1,15 @@
+<% show_post ||= false %>
+
 <h4>Comments:</h4>
 <% obj.comments.each do |comment| %>
   <div class="panel panel-default">
     <div class="panel-body">
       <em>"<%= comment.body %>"</em>
+      <% if show_post %>
+      	<span class='quiet'>on <%= link_to comment.post.title, post_path(comment.post) %></span>
+      <% end %>
     </div>
     <% clean_time = date_time_sanitizer(comment.created_at) %>
-    <div class="panel-footer">by <%= link_to comment.user.username, '#' %> on <%= clean_time %></div>
+    <div class="panel-footer">by <%= link_to comment.user.username, user_path %> on <%= clean_time %></div>
   </div>
 <% end %>
