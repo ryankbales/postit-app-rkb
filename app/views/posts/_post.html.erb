@@ -7,7 +7,7 @@
     <p><%= post.description %></p>
     <p>
       <span class='quiet'>posted by</span> <%= post.user.username if post.user %>
-      <small>on <%= date_time_sanitizer(post.created_at) %></small>
+      <small>on <%= date_time_sanitizer(post.created_at.in_time_zone(current_user.timezone)) if current_user.timezone %></small>
       <br>
       <% if logged_in? %>
         <span class='quiet'><%= link_to 'edit', edit_post_path(post) %></span>
