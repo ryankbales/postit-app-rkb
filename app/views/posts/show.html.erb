@@ -19,13 +19,4 @@
 <% end %>
 <%= link_to '&laquo;go back to all posts'.html_safe, posts_path, class: 'quiet' %>
 
-<h4>Comments:</h4>
-<% @post.comments.each do |comment| %>
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <em>"<%= comment.body %>"</em>
-    </div>
-    <% clean_time = date_time_sanitizer(comment.created_at) %>
-    <div class="panel-footer">by <%= link_to comment.user.username, '#' %> on <%= clean_time %></div>
-  </div>
-<% end %>
+<%= render 'comments', obj: @post %>

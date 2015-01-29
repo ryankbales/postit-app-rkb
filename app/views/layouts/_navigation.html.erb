@@ -6,14 +6,7 @@
     <li>
       <%= link_to 'New Post', new_post_path %>
     </li>
-    <% if logged_in? %>
-      <li>
-        <%= link_to current_user.username, "#" %>
-      </li>
-      <li>
-        <%= link_to 'Log Out', logout_path %>
-      </li>
-    <% else %>
+    <% if !logged_in? %>
       <li>
         <%= link_to 'Register', register_path %>
       </li>
@@ -44,5 +37,26 @@
         </ul>
       </div>
     </li>
+    <% if logged_in? %>
+      <li>
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+            <%= current_user.username %>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuDivider">
+            <li role="presentation">
+              <%= link_to 'View Profile', user_path(current_user) %>
+            </li>
+            <li role="presentation">
+              <%= link_to 'Edit Profile', edit_user_path(current_user) %>
+            </li>
+            <li role="presentation">
+              <%= link_to 'Log Out', logout_path %>
+            </li>
+          </ul>
+        </div>
+      </li>
+    <% end %>
   </ul>
 </nav>
