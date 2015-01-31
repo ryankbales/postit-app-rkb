@@ -1,4 +1,17 @@
 <div class='row'>
+  <div class='span0 well text-center'>
+    <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
+      <span class='glyphicon glyphicon-arrow-up'></span>
+    <% end %>
+    <br>
+    <% if logged_in? %>
+      <%= post.total_votes %> votes
+    <% end %>
+    <br>
+    <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
+      <span class='glyphicon glyphicon-arrow-down'></span>
+    <% end %>
+  </div>
   <div class='span8 well'>
     <% if post.categories %>
       <%= render post.categories %>
