@@ -14,5 +14,8 @@ module ApplicationHelper
     end
   end
 
+  def post_width_class
+    width = logged_in? ? "col-md-10 well pull-right" : "col-md-12 well"
+  end
 
 end
