@@ -6,7 +6,7 @@
 <p><%= @post.description %></p>
 <p><%= normalize_external_link('More Info >>', @post.url) %></p>
 <% if logged_in? %>
-  <%= link_to 'edit post', edit_post_path, class: 'quiet' %>
+  <%= link_to 'edit post', edit_post_path(@post), class: 'quiet' %>
 <% end %>
 <hr>
 <% if logged_in? %>

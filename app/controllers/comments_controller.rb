@@ -8,7 +8,8 @@ class CommentsController < ApplicationController
       flash[:notice] = "Your comment was added."
       redirect_to post_path(@post)
     else
-      render 'posts/show'
+      flash[:errors] = "Your comment can't be blank."
+      redirect_to :back
     end
 
   end
