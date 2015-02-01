@@ -1,0 +1,26 @@
+1.  Rendering displays a view template where any instance variables that are in the action will work.  Redirecting is a whole new request and the any instance variables will be unrelated.
+
+2.  Using flash[:message] will work for a redirect and go away after subsequent requests.
+
+3.  Use flash.now, or a conditional wrapping a message to display.
+
+4.  Passwords are saved as an encrypted and digested strings using Rails methods or Gems.  Passwords should never be saved in their raw form on either client or server side.
+
+5.  Repetitive code can be abstracted out into an application controller method making sure to pass the method to the helper_method method to make it available to the view.
+
+6.  Memoization is a way to restrict hits to the database on an object that doesn't change and is a great way to optimize the app.
+
+7.  We can use methods that we create like logged_in? and current_user to wrap certain elements in conditionals in the view and either show or not render the parts of the app that a logged out or unregistered user shouldn't have access too.
+
+8.  Create polymorphic table for 'likes' with likeable_type and likeable_id.
+
+
+9.  class Vote < ActiveRecord::Base
+		  belongs_to :voteable, polymorphic: true
+		end
+
+		class Post < ActiveRecord::Base
+		  has_many :votes, as: :voteable
+		end
+
+10.  An Entity-Relationship-Diagram is a blueprint for class realtionships in our app and is very important to spend quality time on.  This will allow the developer to set up migrations easily during the app creation.
