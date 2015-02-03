@@ -47,6 +47,9 @@ class PostsController < ApplicationController
       flash[:error] = "Didn't you already vote on this post?"
     end
 
+    respond_to do |format|
+    end
+    
     redirect_to :back
   end
 

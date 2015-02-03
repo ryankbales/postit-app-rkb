@@ -1,13 +1,13 @@
 <div class='row'>
   <% if logged_in? %>
     <div class='col-md-1 well text-center'>
-      <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
+      <%= link_to vote_post_path(post, vote: true), method: 'post', remote: true do %>
       <span class='glyphicon glyphicon-arrow-up'></span>
       <% end %>
       <br>
         <%= post.total_votes %> votes
       <br>
-      <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
+      <%= link_to vote_post_path(post, vote: false), method: 'post', remote: true do %>
         <span class='glyphicon glyphicon-arrow-down'></span>
       <% end %>
     </div>
@@ -21,7 +21,7 @@
     <p>
       <span class='quiet'>posted by</span> <%= post.user.username if post.user %>
       <% if current_user && current_user.timezone %>
-        <small>on <%= date_time_sanitizer(post.created_at.in_time_zone(current_user.timezone))  %></small>
+        <small>on <%= date_time_sanitizer(post.created_at.in_time_zone(current_user.timezone)) %></small>
       <% end %>
       <br>
       <% if logged_in? %>
