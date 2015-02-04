@@ -23,4 +23,7 @@ class Post < ActiveRecord::Base
   def generate_slug
   end
 
+  # def to_param
+  # end
+
 end

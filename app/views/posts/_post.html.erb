@@ -2,10 +2,10 @@
   <% if logged_in? %>
     <div class='col-md-1 well text-center'>
       <%= link_to vote_post_path(post, vote: true), method: 'post', remote: true do %>
-      <span class='glyphicon glyphicon-arrow-up'></span>
+        <span class='glyphicon glyphicon-arrow-up'></span>
       <% end %>
       <br>
-        <%= post.total_votes %> votes
+        <span class="post-<%= post.id %>-vote-count"><%= post.total_votes %></span> votes
       <br>
       <%= link_to vote_post_path(post, vote: false), method: 'post', remote: true do %>
         <span class='glyphicon glyphicon-arrow-down'></span>
