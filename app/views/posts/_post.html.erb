@@ -5,7 +5,7 @@
         <span class='glyphicon glyphicon-arrow-up'></span>
       <% end %>
       <br>
-        <span class="post-<%= post.id %>-vote-count"><%= post.total_votes %></span> votes
+        <span class="post-<%= post.slug %>-vote-count"><%= post.total_votes %></span> votes
       <br>
       <%= link_to vote_post_path(post, vote: false), method: 'post', remote: true do %>
         <span class='glyphicon glyphicon-arrow-down'></span>

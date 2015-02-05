@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :require_user
   def create
-    @post = Post.find(params[:post_id])
+    @post = Post.find_by slug: params[:post_id]
     @comment = @post.comments.build(params.require(:comment).permit(:body))
     @comment.user = current_user
     if @comment.save
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   end
 
   def vote
-    @comment = Comment.find(params[:id])
+    @comment = Comment.find_by slug: params[:id]
     @vote = Vote.create(voteable_id: @comment.id, voteable_type: "Comment", user: current_user, vote: params[:vote])
     respond_to do |format|
       format.html do
