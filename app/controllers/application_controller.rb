@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
     access_denied unless logged_in? and current_user.admin?
   end
 
+  def require_moderator
+    access_denied unless logged_in? and current_user.mod?
+  end
+
   def access_denied
     flash[:error] = "Know your role!"
     redirect_to root_path
